@@ -8,32 +8,59 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Account
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Sign In</a></li>
-            <li><a class="dropdown-item" href="#">Sign Out</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+
+<style>
+  .link{
+    color:white;
+  }
+  .new{
+    height: 175px;
+  }
+  .newButton{
+    margin-top: 50px;
+  }
+  .mainHeading{
+    font-size: 100px;
+  }
+  .projectHeading{
+    font-size: 75px;
+    margin-bottom: 30px;
+  }
+  .heading{
+    font-size: 75px;
+  }
+  .text{
+    text-align: left;
+    font-size: 30px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top">
+<div class="container-fluid">
+  <%= link_to "Home", projects_path, class: "navbar-brand text-light" %>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Account
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Sign In</a></li>
+          <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %> </li>
+        </ul>
+      </li>
+    </ul>
   </div>
+</div>
 </nav>
 <body>
   <div class = "container p-3 mb-2 bg-primary text-white">
-    <h1  align="center">My Portfolio</h1>
-    <p> 
+    <h1 class="mainHeading" align="center">My Portfolio</h1>
+    <p class="text"> 
       My name is Matt Plush and I am a senior at UCCS.I am pursuing a 
       <a class="link-light" href = "https://eas.uccs.edu/cs/academics/undergraduate-programs/bachelor-of-science-in-computer-science"> Bachelor of Science in Computer Science. </a>
       This is a portfolio to showcase some of my projects to help with my job search.
@@ -41,85 +68,55 @@
   </div>
   <div class="container p-3 mb-2 bg-secondary text-white">
     <div class = "container">
-      <h2>Programming Languages</h2>
+      <p class="heading">Programming Languages</p>
       <ul>
-        <li>
+        <li class="text">
           Java
         </li>
-        <li>
+        <li class="text">
           Python
         </li>
-        <li>
+        <li class="text">
           C
         </li>
-        <li>
+        <li class="text">
           C#
         </li>
-        <li>
+        <li class="text">
           Ruby
         </li>
-        <li>
+        <li class="text">
           JavaScript
         </li>
       </ul>
-      <h2>Concepts</h2>
+      <p class="heading">Concepts</p>
       <ul>
-        <li>
+        <li class="text">
               Object-oriented Programming
         </li>
-        <li>
+        <li class="text">
               Agile Software Development
         </li>
-        <li>
+        <li class="text">
               Data Structures & Algorithms
         </li>
       </ul>
-    </div>
-    <div class = "container">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <h2  align="center">Projects</h2>
-          </tr>
-        </thead>
-        <tbody class = "text-white">
-          <tr>
-            <td  align="center">
-              <h5><u>Blackjack</u></h5>
-              <p>
-                This a fully functioning BlackJack game written in C#. You play continuously against the computer, with the option to bet. 
-                If you draw an Ace, you can click it to toggle its value from 11 to 1.
-              </p>
-              <a href="project.html.erb"><button type="button" class="btn btn-primary btn-sm">Show project</button></a>
-              
-            </td>
-            <td align="center">
-              <h5><u>Event Ticket Sales</u></h5>
-              <p>
-                This is a C program simulating ticket sales. Admin starts by logging in with pin and entering seating section names and prices. 
-                Ticket sales for event are then simulated until the user quits
-              </p>
-              <a href="project.html.erb"><button type="button" class="btn btn-primary btn-sm">Show project</button></a>
-            </td>
-            <tr>
-              <td  align="center">
-                <h5><u>Hangman</u></h5>
-                <p>
-                  This is hangman game written in Python. The game starts by loading the english dictionary. 
-                  The user can select a difficulty which will determine the length of word to be played.
-                </p>
-                <a href="project.html.erb"><button type="button" class="btn btn-primary btn-sm">Show project</button></a>
-              </td>
-              <td  align="center">
-                <h5><u>Dictionary</u></h5>
-                <p>This is a python program that simulates a dictionary. The program starts by loading 
-                   the english dictionary into a python dictionary data structure. The user can type in a word to see its definition.
-                </p>
-                <a href="project.html.erb"><button type="button" class="btn btn-primary btn-sm">Show project</button></a>
-              </td>
-            </tr>
-        </tbody>
-      </table>
+      <h2 align="center" class="projectHeading">Projects</h2>
+
+      <ul class="list-group" align="center">
+        <% @projects.each do |project| %>
+          <li class="list-group-item">
+            <%= render project %>
+            <p>
+              <%= button_to "Show this project", project, class: 'btn btn-primary btn-lg', method: :get %>
+            </p>
+          </li>
+        <% end %>
+        <li class="list-group-item new">
+          <%= button_to "New project",new_project_path, class: 'btn btn-success btn-lg newButton', method: :get %>
+    
+        </li>
+      </ul>
     </div>
   </div>
 </body>
