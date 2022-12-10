@@ -1,56 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CS3300 Portfolio Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   
+  <style>
+    .buttons{
+      width: 200px;
+    }
+    .heading{
+      font-size: 60px;
+      text-decoration: underline dotted;
+    }
+    .heading2{
+      font-size: 40px;
+    }
+    .heading3{
+      font-size: 20px;
+    }
+    .bottom{
+      margin-top:100px;
+    }
+    .email{
+      margin-bottom:20px;
+    }
+  </style>
   <body>
-    <div style="margin: 5% 0 0 10%;">
-    <h1>Projects</h1>   
-    <h1>CS 3300 Portfolio Project - Fall 2022</h1>
+  <div class = "container p-3 mb-2 bg-secondary text-white">
 
-      <div style="padding-left: 2rem;">
-        <h4 style="color: blue"> Matthew Plush </h3>
+    <p align="center" class="heading">CS 3300 Portfolio Project</p>
+    <p align="center" class="heading2">Fall 2022</p>
+    <p align="center" class="heading3">By Matthew Plush </p>
         
 
         <!--- Explain what the block of code below this line is doing --->
 
         <% if user_signed_in? %>
-        <nav class="navbar navbar-expand-lg bg-secondary fixed-top">
-        <div class="container-fluid">
-          <%= link_to "Home", projects_path, class: "navbar-brand text-light" %>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Account
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Sign In</a></li>
-                  <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %> </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        </nav>
-          <div> Welcome <%= current_user.email %> </div>
-          <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-        
-        <% else %>
-          <a href="/users/sign_in"> Sign in</a>
-        <% end %>
+          <nav class="navbar navbar-expand-lg bg-secondary fixed-top">
+            <div class="container-fluid">
+            <%= link_to "Home", root_path, class: "navbar-brand text-light" %>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
 
-      </div>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li>
+                    <%= link_to "Portfolio", projects_path, class: "nav-link text-light" %>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <%= current_user.email %>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %> </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <div class="bottom text-center">
+          <div class="email"> Welcome <%= current_user.email %> </div>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class:"btn btn-danger btn-block mb-4 buttons" %> 
+          </div>
+          <% else %>
+        <div class="bottom text-center">
+        <%= button_to "Sign in", user_session_path, method: :get, class: 'btn btn-primary btn-block mb-4 buttons' %>
+        </div> 
+        <% end %>
     </div>
   </body>
 </html>

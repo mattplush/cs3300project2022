@@ -18,13 +18,16 @@
 </style>
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top">
 <div class="container-fluid">
-  <%= link_to "Home", projects_path, class: "navbar-brand text-light" %>
+<%= link_to "Home", root_path, class: "navbar-brand text-light" %>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      
+      <li>
+        <%= link_to "Portfolio", projects_path, class: "nav-link text-light" %>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Account
